@@ -1,0 +1,40 @@
+body,
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #000;
+  background-image: url("https://img.wallpapersafari.com/desktop/1920/1080/32/81/pZVrsv.jpg");
+  background-size: cover;
+}
+
+.shelf {
+  position: absolute;
+  height: 10px;
+  width: 200px;
+  background-color: coral;
+  top: 100px;
+  right: 0;
+}
+
+.ball {
+  position: absolute;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/668-basketball.svg/1200px-668-basketball.svg.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 50px;
+}
+
+#ball1 {
+  top: 55px;
+  right: 150px;
+}
+#ball2 {
+  top: 50px;
+  left: 50%;
+}
