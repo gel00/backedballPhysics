@@ -111,26 +111,35 @@ const infinityRoll = async (el, speed) => {
   });
 };
 
-const roll = async (el, speed) => {
+const roll = async (
+  el,
+  distance,
+  duration,
+  direction = "left",
+  startDeg = 0
+) => {
+  direction = direction === "left" ? -1 : 1;
   let origin = el.offsetLeft;
-  let distance = Math.round(el.offsetHeight * Math.PI);
+  let deg =
+    (360 * direction * distance) / Math.round(el.offsetHeight * Math.PI);
   let animation = el.animate(
     [
       {
         left: origin + "px",
-        transform: "rotate(0deg)",
+        transform: "rotate(" + startDeg + "deg)",
       },
       {
         left: origin - distance + "px",
-        transform: "rotate(-360deg)",
+        transform: "rotate(" + deg + "deg)",
       },
     ],
     {
-      duration: speed,
+      duration: duration,
       fill: "forwards",
       iterations: 1,
     }
   );
+  animation.deg = deg;
   return animation.finished;
 };
 const myAnimation = async () => {
@@ -154,12 +163,15 @@ const myAnimation = async () => {
 
 const myAnimation2 = async () => {
   //roll ball to the edge
-  let ballSize = ball1.offsetWidth;
-  let timeToTheEdge = ballSize / (ballSize * Math.PI);
-  infinityRoll(ball1, 5000);
+  await roll(ball1, 35, 1000, "left", 0);
+  await (() => {
+    roll(ball1, 300, 3500, "left", -114.65);
+    //moveX(ball1, ball1.offsetLeft, ball1.offsetLeft - 35, 10000);
+    bounce(ball1);
+  })();
 };
 
-myAnimation();
+myAnimation2();
 /*const waitFor = (ms) => new Promise((r) => setTimeout(r, ms));
 
 async function asyncForEach(array, callback) {
