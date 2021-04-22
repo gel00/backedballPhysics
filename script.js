@@ -137,6 +137,7 @@ const roll = async (
       duration: duration,
       fill: "forwards",
       iterations: 1,
+      easing: "ease-out",
     }
   );
   animation.deg = deg;
@@ -163,7 +164,7 @@ const myAnimation = async () => {
 
 const myAnimation2 = async () => {
   //roll ball to the edge
-  await roll(ball1, 35, 1000, "left", 0);
+  await roll(ball1, 35, 2000, "left", 0);
   await (() => {
     roll(ball1, 300, 3500, "left", -114.65);
     //moveX(ball1, ball1.offsetLeft, ball1.offsetLeft - 35, 10000);
