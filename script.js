@@ -2,6 +2,7 @@ const ball1 = document.getElementById("ball1");
 const ball2 = document.getElementById("ball2");
 
 const times = [];
+
 for (i = 0; i <= 1; i += 0.07) {
   let x = Math.pow(i, 5);
   times.unshift(450 - Math.ceil(50 + 3.5 * x * 100));

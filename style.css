@@ -10,6 +10,7 @@ body {
   background: #000;
   background-image: url("https://img.wallpapersafari.com/desktop/1920/1080/32/81/pZVrsv.jpg");
   background-size: cover;
+  background-position: center;
 }
 
 .shelf {
